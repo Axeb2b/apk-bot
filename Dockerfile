@@ -1,13 +1,7 @@
-FROM node:18-slim
+FROM eclipse-temurin:17-jre-alpine
 
-# Install Java (JRE) and utilities
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends openjdk-17-jre-headless wget unzip && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-# Verify Java
-RUN java -version
+# Install required packages (wget, unzip, bash)
+RUN apk add --no-cache wget unzip bash
 
 # Install Android build-tools (zipalign & apksigner)
 RUN wget https://github.com/rendiix/termux-android/releases/download/build-tools/build-tools_r34.zip -O /tmp/build-tools.zip && \
@@ -17,24 +11,22 @@ RUN wget https://github.com/rendiix/termux-android/releases/download/build-tools
     chmod +x /usr/local/bin/zipalign /usr/local/bin/apksigner && \
     rm -rf /tmp/build-tools*
 
-# Verify zipalign and apksigner
-RUN which zipalign && zipalign -v || echo "zipalign missing"
-RUN which apksigner && apksigner version || echo "apksigner missing"
-
 # Install apktool.jar
 RUN wget https://github.com/iBotPeaches/Apktool/releases/download/v2.9.3/apktool.jar -O /usr/local/bin/apktool.jar && \
     chmod +x /usr/local/bin/apktool.jar
 
-# Verify apktool
-RUN ls -la /usr/local/bin/apktool.jar
-
-# Ensure all binaries are in PATH (though they should be)
-ENV PATH="/usr/local/bin:$PATH"
-
+# Set working directory
 WORKDIR /app
+
+# Copy package files and install dependencies
 COPY package*.json ./
 RUN npm install
+
+# Copy bot code
 COPY apk_protector_bot.js .
 
+# Environment variable
 ENV TG_BOT_TOKEN=""
+
+# Run bot
 CMD ["node", "apk_protector_bot.js"]
