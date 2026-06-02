@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: apk-protector-bot
+    runtime: image
+    repo: https://github.com/YOUR_USERNAME/YOUR_REPO
+    plan: free
+    envVars:
+      - key: TG_BOT_TOKEN
+        sync: false
+    buildCommand: chmod +x start.sh
+    startCommand: ./start.sh
