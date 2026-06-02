@@ -176,7 +176,8 @@ async function protectApk(apkFilePath, sessionId) {
 
     try {
         const decompileDir = path.join(tempWorkDir, 'decompiled');
-        await execShell(`apktool d "${apkFilePath}" -o "${decompileDir}" -f`);
+        // Use java -jar instead of apktool command
+        await execShell(`java -jar /usr/local/bin/apktool.jar d "${apkFilePath}" -o "${decompileDir}" -f`);
 
         const classesDexPath = path.join(decompileDir, 'classes.dex');
         if (!fs.existsSync(classesDexPath)) throw new Error('classes.dex not found');
@@ -217,7 +218,8 @@ async function protectApk(apkFilePath, sessionId) {
         await fs.remove(classesDexPath);
 
         const rebuiltApkPath = path.join(tempWorkDir, 'unsigned.apk');
-        await execShell(`apktool b "${decompileDir}" -o "${rebuiltApkPath}"`);
+        // Use java -jar for rebuilding too
+        await execShell(`java -jar /usr/local/bin/apktool.jar b "${decompileDir}" -o "${rebuiltApkPath}"`);
 
         const keystorePath = path.join(tempWorkDir, 'keystore.jks');
         const keystorePass = randomString(16);
