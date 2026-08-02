@@ -6,7 +6,7 @@ import { auth, db, handleFirestoreError, OperationType } from "./firebase";
 
 // Core components
 import Header from "./components/Header";
-import Dashboard from "./components/Dashboard";
+import HomeDashboard from "./components/HomeDashboard";
 import SwapCard from "./components/SwapCard";
 import BridgeCard from "./components/BridgeCard";
 import BuySellCard from "./components/BuySellCard";
@@ -15,28 +15,11 @@ import ApiDocs from "./components/ApiDocs";
 import LegalViews from "./components/LegalViews";
 import ProfileView from "./components/ProfileView";
 import TransactionHistory from "./components/TransactionHistory";
-import EcosystemInfoHub from "./components/EcosystemInfoHub";
 import StakingDashboard from "./components/StakingDashboard";
 import WalletConnect from "./components/WalletConnect";
 import MarketTicker from "./components/MarketTicker";
 
-// Lucide icon helper
-import { 
-  LucideIcon, 
-  Loader2, 
-  Sparkles, 
-  CheckCircle, 
-  Wallet,
-  Shield,
-  Activity,
-  CheckCircle2,
-  ExternalLink,
-  Github,
-  Twitter,
-  MessageSquare,
-  Send,
-  Lock
-} from "lucide-react";
+import { Loader2, Twitter, Send, Github, Zap } from "lucide-react";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>("dashboard");
@@ -185,7 +168,10 @@ export default function App() {
     <div className="min-h-screen text-slate-100 flex flex-col font-sans selection:bg-cyan-500/20 selection:text-cyan-300 relative">
       
       {/* Ambient background */}
-      <div className="app-bg" aria-hidden="true" />
+      <div className="app-bg" aria-hidden="true">
+        <div className="orb-1" />
+        <div className="orb-2" />
+      </div>
 
       {/* Top sticky navbar navigation */}
       <div className="relative z-50">
@@ -204,7 +190,7 @@ export default function App() {
       <MarketTicker />
 
       {/* Main app container routing */}
-      <main className="relative z-10 flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+      <main className="relative z-10 flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 py-6 space-y-8">
         
         {authLoading ? (
           <div className="py-24 text-center space-y-4">
@@ -217,18 +203,11 @@ export default function App() {
         ) : (
           <div className="space-y-10 page-section fade-in">
             
-            {/* Portal guide — dashboard only */}
-            {activeTab === "dashboard" && (
-              <EcosystemInfoHub activeTab={activeTab} setActiveTab={setActiveTab} />
-            )}
             
             {/* View content injection */}
             {activeTab === "dashboard" && (
-              <Dashboard
+              <HomeDashboard
                 setActiveTab={setActiveTab}
-                setSelectedSwapFrom={setSelectedSwapFrom}
-                user={user}
-                userProfile={userProfile}
                 connectedWallet={connectedWallet}
                 onConnectWallet={handleWalletConnect}
               />
@@ -328,160 +307,28 @@ export default function App() {
         </div>
       )}
 
-      {/* Premium Multi-Column Web3 Trust Footer */}
-      <footer className="relative z-10 border-t border-slate-800/50 glass-nav font-sans text-xs text-slate-400 mt-auto overflow-hidden" id="trusted-web3-footer">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Column 1: Brand Intro */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-500 flex items-center justify-center text-slate-950 font-bold text-sm tracking-tighter">
-                  zP
-                </div>
-                <span className="font-extrabold text-base text-white tracking-wider uppercase font-sans">zPredict <span className="text-cyan-400 text-xs font-medium lowercase">protocols</span></span>
-              </div>
-              <p className="text-[11px] text-slate-500 leading-relaxed font-sans font-medium">
-                The premier multi-chain decentralized predicting node, high-speed swap gateway, and secure cross-chain bridging hub. Driven by automated AI telemetry and backed by zero-trust cryptographic validations.
-              </p>
-              <div className="flex items-center gap-1.5 text-[9px] font-mono text-cyan-400/80 bg-cyan-950/15 border border-cyan-900/30 w-fit px-2.5 py-1 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                Zero-Trust Shield Active
-              </div>
+      <footer className="relative z-10 glass-nav mt-auto border-t border-white/5">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-cyan-400 to-violet-500 flex items-center justify-center">
+              <Zap className="w-3.5 h-3.5 text-black fill-black" />
             </div>
-
-            {/* Column 2: Navigation Links */}
-            <div className="space-y-4">
-              <h4 className="font-sans font-bold text-xs text-white uppercase tracking-wider">Protocol Ecosystem</h4>
-              <ul className="space-y-2.5 text-[11px] font-mono">
-                {[
-                  { name: "Analytical Dashboard", tab: "dashboard" },
-                  { name: "AI Swap Engine", tab: "swap" },
-                  { name: "Multi-Chain Bridge", tab: "bridge" },
-                  { name: "Developer APIs Docs", tab: "api" },
-                  { name: "Ecosystem Blogs", tab: "blogs" }
-                ].map((item) => (
-                  <li key={item.name}>
-                    <button
-                      onClick={() => {
-                        setActiveTab(item.tab);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                      className="hover:text-cyan-400 text-slate-400 transition-colors flex items-center gap-1 cursor-pointer text-left font-sans"
-                    >
-                      <span className="text-cyan-500/50 font-mono">›</span> {item.name}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 3: Trust Integrations & Wallets */}
-            <div className="space-y-4" id="wallet-integrations-footer">
-              <h4 className="font-sans font-bold text-xs text-white uppercase tracking-wider">Secure Gateways</h4>
-              <p className="text-[10px] text-slate-500 leading-relaxed">
-                Connect and trade directly from top-tier institutional wallet systems without third-party escrow.
-              </p>
-              
-              <div className="space-y-2">
-                {/* Trust Wallet Interactive status bar */}
-                <div className="flex items-center justify-between p-2.5 rounded-xl glass-inner hover:border-cyan-500/20 transition-all select-none col-span-1">
-                  <div className="flex items-center gap-2">
-                    {/* Trust Wallet Brand Icon */}
-                    <svg className="w-5 h-5 text-sky-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm0 2.21c2.28 1.13 5.37 2.44 6.79 3.02C18.25 10.95 16 14.54 12 18.21c-4-3.67-6.25-7.26-6.79-10.98 1.42-.58 4.51-1.89 6.79-3.02z" />
-                    </svg>
-                    <div>
-                      <span className="block font-sans font-bold text-[10px] text-white">Trust Wallet Secure</span>
-                      <span className="text-[8px] font-mono text-slate-500 block leading-tight">Live Vault System v4.2</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 shrink-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 absolute" />
-                    <span className="text-[9px] font-mono text-emerald-400 font-bold ml-1.5">ONLINE</span>
-                  </div>
-                </div>
-
-                {/* Coinbase Wallet Interactive status bar */}
-                <div className="flex items-center justify-between p-2.5 rounded-xl glass-inner hover:border-cyan-500/20 transition-all select-none col-span-1">
-                  <div className="flex items-center gap-2">
-                    {/* Coinbase Wallet Icon representing brand */}
-                    <div className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center font-bold text-[9px] text-white select-none shrink-0 font-mono">
-                      C
-                    </div>
-                    <div>
-                      <span className="block font-sans font-bold text-[10px] text-white">Coinbase Wallet</span>
-                      <span className="text-[8px] font-mono text-slate-500 block leading-tight">Secured API Gateway</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 shrink-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 absolute" />
-                    <span className="text-[9px] font-mono text-emerald-400 font-bold ml-1.5">VERIFIED</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Column 4: Compliance & Legal Links */}
-            <div className="space-y-4">
-              <h4 className="font-sans font-bold text-xs text-white uppercase tracking-wider">Security & Legal</h4>
-              <ul className="space-y-2.5 text-[11px] font-sans">
-                <li><button onClick={() => setActiveTab("legal")} className="hover:text-cyan-400 text-slate-400">🔐 Privacy Policy</button></li>
-                <li><button onClick={() => setActiveTab("legal")} className="hover:text-cyan-400 text-slate-400">📄 Terms & Conditions</button></li>
-                <li><a href="#" className="hover:text-cyan-400 text-slate-400">⚖️ Risk Disclaimer</a></li>
-                <li><a href="#" className="hover:text-cyan-400 text-slate-400">❓ FAQ</a></li>
-              </ul>
-              
-              {/* Compliance Badging / Trusted status */}
-              <div className="pt-1">
-                <div className="p-2.5 rounded-xl bg-slate-900/40 border border-slate-900 font-mono text-[9px] text-slate-500 space-y-1.5">
-                  <div className="flex items-center justify-between">
-                    <span>EVM Compliance:</span>
-                    <span className="text-emerald-400 font-bold">100% SECURE</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span>Relay Hash Code:</span>
-                    <span className="text-slate-400">ZP-B984F</span>
-                  </div>
-                  <div className="w-full bg-slate-950 h-1 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-cyan-400 to-indigo-500 w-11/12 animate-pulse" />
-                  </div>
-                </div>
-              </div>
-            </div>
+            <span className="font-display font-bold text-white">zPredict</span>
+            <span className="text-zinc-600 text-xs">© 2026</span>
           </div>
-
-          {/* Social Profiles bar and general copyright */}
-          <div className="mt-12 pt-8 border-t border-slate-900/60 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <p className="font-mono text-[10px] text-slate-500 text-center sm:text-left leading-relaxed">
-              © 2026 <span className="text-white font-sans font-semibold">zPredict protocols Inc.</span> • Deep Cryptographic forecasting algorithms and peer-to-peer liquidity nodes. Securing Web3 credentials.
-            </p>
-
-            {/* Social channels profile links */}
-            <div className="flex items-center gap-3">
-              {[
-                { icon: Twitter, url: "https://twitter.com/zPredict", title: "Join zPredict Twitter" },
-                { icon: Send, url: "https://t.me/zpredictt", title: "Join zPredict Telegram" },
-                { icon: MessageSquare, url: "https://discord.gg/zPredict", title: "Join zPredict Discord" },
-                { icon: Github, url: "https://github.com/zpredict", title: "Explore zPredict Code" }
-              ].map((soc, idx) => {
-                const IconComponent = soc.icon;
-                return (
-                  <a
-                    key={idx}
-                    href={soc.url}
-                    onClick={(e) => e.preventDefault()}
-                    className="p-2.5 glass-inner hover:border-cyan-500/20 hover:text-cyan-400 text-slate-400 rounded-xl transition-all"
-                    title={soc.title}
-                  >
-                    <IconComponent className="w-4 h-4" />
-                  </a>
-                );
-              })}
-            </div>
+          <div className="flex items-center gap-4 text-xs text-zinc-500">
+            {["swap","bridge","api","legal"].map(tab => (
+              <button key={tab} onClick={() => setActiveTab(tab)}
+                className="hover:text-cyan-400 transition-colors cursor-pointer capitalize">{tab}</button>
+            ))}
+          </div>
+          <div className="flex items-center gap-2">
+            {[Twitter, Send, Github].map((Icon, i) => (
+              <a key={i} href="#" onClick={e => e.preventDefault()}
+                className="p-2 glass-inner rounded-lg text-zinc-500 hover:text-cyan-400 transition-colors">
+                <Icon className="w-3.5 h-3.5" />
+              </a>
+            ))}
           </div>
         </div>
       </footer>
