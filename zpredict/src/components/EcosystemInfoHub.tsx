@@ -156,26 +156,26 @@ export default function EcosystemInfoHub({ activeTab, setActiveTab }: EcosystemI
 
   return (
     <div 
-      className="border border-slate-900 bg-slate-950/60 rounded-2xl p-4 sm:p-5 relative overflow-hidden transition-all duration-300" 
+      className="glass-card rounded-2xl p-4 sm:p-5 relative overflow-hidden transition-all duration-300" 
       id="ecosystem-directory-info-card"
     >
-      <div className="absolute inset-0 bg-radial-gradient from-cyan-950/5 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/3 via-transparent to-violet-500/3 pointer-events-none" />
       
       {/* Top Header Row */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-slate-900/80 border border-slate-850 flex items-center justify-center text-cyan-400">
-            <Info className="w-5 h-5" />
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+            <Info className="w-4 h-4" />
           </div>
           <div>
-            <h3 className="font-sans font-bold text-sm text-white flex items-center gap-2">
-              zPredict Portal Directory
-              <span className="inline-flex items-center gap-1.5 text-[9px] font-mono text-cyan-400 bg-cyan-950/30 border border-cyan-900/60 px-2 py-0.5 rounded-full uppercase">
-                Interactive Guide
+            <h3 className="font-display font-bold text-sm text-white flex items-center gap-2">
+              Platform Guide
+              <span className="stat-badge !text-[8px] !py-0.5">
+                {pagesList.length} modules
               </span>
             </h3>
-            <p className="text-[11px] text-slate-500 font-sans mt-0.5">
-              Get detailed information about all website pages, their features, and navigate seamlessly between them.
+            <p className="text-[11px] text-slate-500 mt-0.5">
+              Explore all features and navigate between modules
             </p>
           </div>
         </div>
@@ -183,7 +183,7 @@ export default function EcosystemInfoHub({ activeTab, setActiveTab }: EcosystemI
         <button
           onClick={() => setIsExpanded(!isExpanded)}
           id="toggle-ecosystem-directory-btn"
-          className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 hover:bg-slate-850 border border-slate-800 hover:border-slate-700 text-slate-300 hover:text-white rounded-xl text-xs font-mono transition-all cursor-pointer self-start sm:self-auto"
+          className="btn-secondary !text-xs !py-2 !px-3 self-start sm:self-auto"
         >
           {isExpanded ? (
             <>

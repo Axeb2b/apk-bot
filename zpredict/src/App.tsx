@@ -174,9 +174,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-cyan-500/20 selection:text-cyan-300">
+    <div className="min-h-screen text-slate-100 flex flex-col font-sans selection:bg-cyan-500/20 selection:text-cyan-300 relative">
       
+      {/* Ambient background */}
+      <div className="app-bg" aria-hidden="true" />
+
       {/* Top sticky navbar navigation */}
+      <div className="relative z-50">
       <Header
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -187,9 +191,10 @@ export default function App() {
         userProfile={userProfile}
         onLogout={handleLogout}
       />
+      </div>
 
       {/* Main app container routing */}
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+      <main className="relative z-10 flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
         
         {authLoading ? (
           <div className="py-24 text-center space-y-4">
@@ -313,8 +318,8 @@ export default function App() {
       )}
 
       {/* Premium Multi-Column Web3 Trust Footer */}
-      <footer className="border-t border-slate-900 bg-slate-950 font-sans text-xs text-slate-400 mt-auto relative overflow-hidden" id="trusted-web3-footer">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-500/25 to-transparent" />
+      <footer className="relative z-10 border-t border-slate-800/50 glass-nav font-sans text-xs text-slate-400 mt-auto overflow-hidden" id="trusted-web3-footer">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -186,13 +186,13 @@ export default function SwapCard({
   return (
     <div className="space-y-8" id="swap-interface">
       <div className="max-w-md mx-auto">
-        <div className="bg-slate-950 border border-slate-900 rounded-3xl p-6 shadow-2xl relative">
+        <div className="glass-card rounded-3xl p-6 relative shimmer-border">
           
           {/* Header toolbar */}
-          <div className="flex items-center justify-between mb-5">
+          <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-xl font-sans font-bold text-white">Swap Assets</h2>
-            <p className="text-xs text-slate-500">DeFi Automated Market Maker</p>
+            <h2 className="text-xl font-display font-bold text-white">Swap Assets</h2>
+            <p className="text-xs text-slate-500 mt-0.5">Best rate across all pools</p>
           </div>
           <div className="flex items-center gap-2">
             <button
@@ -264,8 +264,8 @@ export default function SwapCard({
         <form onSubmit={executeSwapTrade} className="space-y-4">
           
           {/* Sending Card */}
-          <div className="bg-slate-900 p-4 border border-slate-800 rounded-2xl relative">
-            <span className="block text-xs font-medium text-slate-500 uppercase tracking-wider mb-2">Sell / From</span>
+          <div className="input-glass p-4 relative">
+            <span className="block text-[10px] font-mono font-semibold text-slate-500 uppercase tracking-wider mb-2">You Pay</span>
             <div className="flex items-center justify-between gap-4">
               <input
                 id="swap-amount-from"
@@ -316,15 +316,15 @@ export default function SwapCard({
               type="button"
               onClick={handleSwapTokens}
               disabled={loading}
-              className="absolute z-10 p-2.5 bg-slate-950 hover:bg-slate-900 border border-slate-800 hover:border-cyan-500 text-slate-400 hover:text-cyan-400 rounded-full shadow-lg transition-transform hover:scale-105 cursor-pointer"
+              className="absolute z-10 p-2.5 glass-card hover:border-cyan-400/40 text-slate-400 hover:text-cyan-400 rounded-full transition-all hover:scale-110 cursor-pointer"
             >
               <ArrowDown className="w-4 h-4" />
             </button>
           </div>
 
           {/* Acquiring Card */}
-          <div className="bg-slate-900 p-4 border border-slate-800 rounded-2xl">
-            <span className="block text-xs font-medium text-slate-500 uppercase tracking-wider mb-2">Buy / To (Expected)</span>
+          <div className="input-glass p-4">
+            <span className="block text-[10px] font-mono font-semibold text-slate-500 uppercase tracking-wider mb-2">You Receive</span>
             <div className="flex items-center justify-between gap-4">
               <input
                 id="swap-amount-to"
@@ -411,7 +411,7 @@ export default function SwapCard({
               id="swap-submit"
               type="submit"
               disabled={loading || !fromAmount}
-              className="w-full py-3 px-4 bg-cyan-400 hover:bg-cyan-300 disabled:bg-slate-900 disabled:text-slate-600 disabled:border-slate-800 text-sm font-semibold rounded-xl text-slate-950 transition-all flex items-center justify-center gap-3 cursor-pointer"
+              className="w-full btn-primary !justify-center disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
             >
               {loading ? (
                 <>

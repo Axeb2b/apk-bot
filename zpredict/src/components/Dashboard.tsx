@@ -833,48 +833,68 @@ export default function Dashboard({
     <div className="space-y-12" id="dashboard-container">
       
       {/* Hero Welcome Unit */}
-      <section className="relative overflow-hidden bg-slate-950 border border-slate-900 rounded-3xl p-6 sm:p-10">
-        <div className="absolute top-0 right-0 p-8 opacity-[0.03] select-none pointer-events-none hidden md:block">
-          <Zap className="w-80 h-80 text-cyan-400 fill-current" />
+      <section className="relative overflow-hidden glass-card rounded-3xl p-6 sm:p-10 shimmer-border">
+        {/* Decorative orbs */}
+        <div className="absolute -top-24 -right-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-16 -left-16 w-48 h-48 bg-violet-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-1/2 right-8 -translate-y-1/2 opacity-[0.04] select-none pointer-events-none hidden lg:block">
+          <Zap className="w-72 h-72 text-cyan-400 fill-current" />
         </div>
-        <div className="relative z-10 max-w-3xl space-y-5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-cyan-950/40 border border-cyan-800/40 rounded-full">
-            <Sparkles className="w-4 h-4 text-cyan-400" />
-            <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">
-              Autonomous Cross-Chain Network Ecosystem
-            </span>
+
+        <div className="relative z-10 max-w-3xl space-y-6">
+          <div className="stat-badge">
+            <span className="pulse-dot" />
+            Live Multi-Chain Network
           </div>
-          <h1 className="text-3xl sm:text-5xl font-sans font-extrabold tracking-tight text-white leading-tight">
-            The Smart Terminal for <span className="bg-gradient-to-r from-cyan-400 via-teal-400 to-indigo-500 bg-clip-text text-transparent">Multi-Chain Swaps</span> and Predictions.
+
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight leading-[1.1]">
+            <span className="text-gradient-hero">Trade, Bridge & Predict</span>
+            <br />
+            <span className="text-slate-300 text-2xl sm:text-4xl lg:text-5xl font-bold">Across Every Chain</span>
           </h1>
-          <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl">
-            Welcome to zPredict. Connect your self-custodial wallets to instantly trade utility coins, execute cost-effective cross-network bridges, download developer API keys, and follow dynamic gas trackers. Supported securely through Firebase Cloud isolated databases.
+
+          <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-xl">
+            Swap tokens instantly, bridge across L1 & L2 networks, stake for rewards, and track your portfolio — all in one premium Web3 terminal.
           </p>
+
+          {/* Live stats strip */}
+          <div className="flex flex-wrap gap-4 sm:gap-6 pt-1">
+            {[
+              { label: "24h Volume", value: "$2.4B+" },
+              { label: "Active Chains", value: "12" },
+              { label: "Avg. Swap Time", value: "< 3s" },
+            ].map((stat) => (
+              <div key={stat.label} className="flex flex-col">
+                <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">{stat.label}</span>
+                <span className="text-lg font-display font-bold text-white">{stat.value}</span>
+              </div>
+            ))}
+          </div>
+
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <button
                id="dashboard-swap-cta"
                onClick={() => setActiveTab("swap")}
-               className="flex items-center gap-2 py-3 px-6 text-sm font-bold text-slate-950 bg-cyan-400 hover:bg-cyan-300 rounded-xl transition-all cursor-pointer shadow-lg shadow-cyan-500/10 hover:-translate-y-0.5 duration-200"
+               className="btn-primary"
             >
-              Exchange Tokens Now
+              Start Trading
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
                id="dashboard-bridge-cta"
                onClick={() => setActiveTab("bridge")}
-               className="py-3 px-6 text-sm font-bold text-white bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-xl transition-all cursor-pointer hover:-translate-y-0.5 duration-200"
+               className="btn-secondary"
             >
-              Bridge L1 & L2 Channels
+              Cross-Chain Bridge
             </button>
           </div>
         </div>
       </section>
 
       {/* Total Portfolio Value Historical Chart */}
-      <section className="bg-slate-950 border border-slate-900 rounded-3xl p-6 sm:p-8 relative overflow-hidden" id="portfolio-history-chart-card">
-        {/* Subtle decorative background glow */}
+      <section className="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden glass-card-hover" id="portfolio-history-chart-card">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none select-none" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none select-none" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-500/5 rounded-full blur-[100px] pointer-events-none select-none" />
         
         <div className="relative z-10 flex flex-col space-y-6">
           {/* Header row */}
