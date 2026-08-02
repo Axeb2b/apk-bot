@@ -159,6 +159,14 @@ export default function App() {
     }
   }, [isConnected, address]);
 
+  // Expose global connect function for any button: onclick="connectWallet()"
+  useEffect(() => {
+    (window as any).connectWallet = () => setShowConnectModal(true);
+    return () => {
+      delete (window as any).connectWallet;
+    };
+  }, []);
+
   const handleWalletConnect = () => {
     setShowConnectModal(true);
   };
@@ -296,10 +304,6 @@ export default function App() {
       <WalletConnect 
         isOpen={showConnectModal}
         onClose={() => setShowConnectModal(false)}
-        onConnectMock={(addr) => {
-          setConnectedWallet(addr);
-          localStorage.setItem("zpredict_sandbox_wallet", addr);
-        }}
       />
 
       {/* Simulated Connect wallet modal feedback hook */}
