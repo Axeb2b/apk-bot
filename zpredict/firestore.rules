@@ -1,0 +1,126 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Catch-all safety net (Default Deny)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Standard security check helpers
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    // --- Entity: User Profile ---
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      // Deny list queries globally to shield sensitive PII (emails) from collection crawling.
+      allow list: if false;
+
+      allow create: if isOwner(userId)
+        && isValidId(userId)
+        && incoming().userId == request.auth.uid
+        && incoming().email is string
+        && incoming().email.size() <= 128
+        && (incoming().displayName == null || (incoming().displayName is string && incoming().displayName.size() <= 128))
+        && (incoming().walletAddress == null || (incoming().walletAddress is string && incoming().walletAddress.size() <= 128))
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isOwner(userId)
+        && incoming().userId == existing().userId
+        && incoming().email == existing().email
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'walletAddress', 'updatedAt']);
+    }
+
+    // --- Entity: Transaction Record ---
+    match /transactions/{transactionId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+      // Secure List Query: Enforces server-side constraints. Any list request must filter by userId.
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+
+      allow create: if isSignedIn()
+        && isValidId(transactionId)
+        && incoming().transactionId == transactionId
+        && incoming().userId == request.auth.uid
+        && incoming().type in ['swap', 'bridge', 'buy', 'sell']
+        && incoming().fromToken is string && incoming().fromToken.size() <= 32
+        && incoming().fromAmount is number && incoming().fromAmount >= 0
+        && incoming().toToken is string && incoming().toToken.size() <= 32
+        && incoming().toAmount is number && incoming().toAmount >= 0
+        && incoming().network is string && incoming().network.size() <= 64
+        && incoming().status in ['pending', 'completed', 'failed']
+        && incoming().txHash is string && incoming().txHash.size() <= 256
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isSignedIn()
+        && existing().userId == request.auth.uid
+        && incoming().userId == existing().userId
+        && incoming().transactionId == existing().transactionId
+        && incoming().type == existing().type
+        && incoming().fromToken == existing().fromToken
+        && incoming().fromAmount == existing().fromAmount
+        && incoming().toToken == existing().toToken
+        && incoming().toAmount == existing().toAmount
+        && incoming().network == existing().network
+        && incoming().txHash == existing().txHash
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && incoming().diff(existing()).affectedKeys().hasOnly(['status', 'updatedAt']);
+    }
+
+    // --- Entity: Price Alert ---
+    match /alerts/{alertId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+      // Secure List Query: Enforces server-side constraints. Any list request must filter by userId.
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+
+      allow create: if isSignedIn()
+        && isValidId(alertId)
+        && incoming().alertId == alertId
+        && incoming().userId == request.auth.uid
+        && incoming().tokenSymbol is string && incoming().tokenSymbol.size() <= 32
+        && incoming().tokenName is string && incoming().tokenName.size() <= 64
+        && incoming().targetPrice is number && incoming().targetPrice >= 0
+        && incoming().condition in ['above', 'below']
+        && incoming().status in ['active', 'triggered', 'paused']
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isSignedIn()
+        && existing().userId == request.auth.uid
+        && incoming().userId == existing().userId
+        && incoming().alertId == existing().alertId
+        && incoming().tokenSymbol == existing().tokenSymbol
+        && incoming().tokenName == existing().tokenName
+        && incoming().targetPrice is number && incoming().targetPrice >= 0
+        && incoming().condition in ['above', 'below']
+        && incoming().status in ['active', 'triggered', 'paused']
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && incoming().diff(existing()).affectedKeys().hasOnly(['targetPrice', 'condition', 'status', 'updatedAt']);
+
+      allow delete: if isSignedIn() && existing().userId == request.auth.uid;
+    }
+  }
+}
