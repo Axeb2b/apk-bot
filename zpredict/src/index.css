@@ -313,3 +313,45 @@ body {
   font-size: 0.75rem;
   color: #94a3b8;
 }
+
+/* Nested glass panels */
+.glass-inner {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.07);
+}
+
+.glass-panel {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.6) 0%, rgba(10, 15, 30, 0.5) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.glass-ticker {
+  background: rgba(3, 7, 18, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(34, 211, 238, 0.08);
+}
+
+/* Tab switcher */
+.glass-tabs {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+.glass-tab-active {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.15) 0%, rgba(139, 92, 246, 0.1) 100%);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  color: #67e8f9;
+  box-shadow: 0 0 16px rgba(34, 211, 238, 0.08);
+}
+
+/* Page section wrapper */
+.page-section {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

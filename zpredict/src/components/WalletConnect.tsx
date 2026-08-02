@@ -89,12 +89,12 @@ const WalletConnectModal = ({ isOpen, onClose }: WalletConnectProps) => {
     <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
-      <div className="relative z-10 w-full sm:max-w-[400px] bg-[#1a1d26] sm:rounded-2xl rounded-t-2xl border border-slate-700/40 shadow-2xl animate-scale-up overflow-hidden">
+      <div className="relative z-10 w-full sm:max-w-[400px] glass-card sm:rounded-2xl rounded-t-2xl shimmer-border shadow-2xl animate-scale-up overflow-hidden">
         {/* Header */}
         <div className="px-5 pt-5 pb-4 border-b border-slate-700/30">
           <div className="flex items-start justify-between gap-3">
             <div className="flex-1">
-              <h2 className="text-lg font-bold text-white">Connect your wallet</h2>
+              <h2 className="text-lg font-display font-bold text-white">Connect your wallet</h2>
               <p className="text-[13px] text-slate-400 mt-1.5 leading-snug">
                 Select an option below to connect wallet. We never ask for your private key.
               </p>

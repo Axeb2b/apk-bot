@@ -45,7 +45,7 @@ const FaqItemComponent: React.FC<{ faq: FaqItem }> = ({ faq }) => {
 
 export default function FaqSection() {
   return (
-      <section className="bg-slate-950 border border-slate-900 rounded-2xl p-6 mt-8">
+      <section className="glass-card rounded-2xl p-6 mt-8">
         <h3 className="text-xl font-bold text-white mb-6">Frequently Asked Questions</h3>
         <div className="space-y-3">
           {faqs.map((faq, i) => <FaqItemComponent key={i} faq={faq} />)}

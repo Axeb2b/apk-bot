@@ -46,7 +46,7 @@ export default function BlogsList({ onNavigateToSwap }: BlogsListProps) {
         </div>
 
         {/* Metadata sublayer */}
-        <div className="flex flex-wrap items-center gap-5 p-4 bg-slate-950 border border-slate-900 rounded-xl text-xs font-mono text-slate-400">
+        <div className="flex flex-wrap items-center gap-5 p-4 glass-card rounded-xl text-xs font-mono text-slate-400">
           <span className="flex items-center gap-1.5">
             <User className="w-4 h-4 text-slate-600" />
             Authored by <strong className="text-slate-300">{selectedArticle.author}</strong>
@@ -110,7 +110,7 @@ export default function BlogsList({ onNavigateToSwap }: BlogsListProps) {
             key={article.id}
             id={`blog-card-${article.id}`}
             onClick={() => setSelectedArticle(article)}
-            className="flex flex-col bg-slate-950 border border-slate-900 rounded-2xl overflow-hidden hover:border-slate-800 transition-all cursor-pointer hover:shadow-lg hover:shadow-cyan-500/5 group"
+            className="flex flex-col glass-card rounded-2xl overflow-hidden hover:border-slate-800 transition-all cursor-pointer hover:shadow-lg hover:shadow-cyan-500/5 group"
           >
             {/* thumbnail */}
             <div className="h-48 w-full overflow-hidden relative">

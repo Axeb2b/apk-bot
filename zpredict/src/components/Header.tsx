@@ -90,7 +90,7 @@ export default function Header({
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-0.5 p-1 rounded-2xl bg-slate-900/40 border border-slate-800/50">
+          <nav className="hidden lg:flex items-center gap-0.5 p-1 rounded-2xl glass-card/50">
             {navigationItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeTab === item.id;

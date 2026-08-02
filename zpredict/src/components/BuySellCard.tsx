@@ -179,10 +179,10 @@ export default function BuySellCard({
   return (
     <div className="space-y-8" id="buysell-interface">
       <div className="max-w-md mx-auto">
-        <div className="bg-slate-950 border border-slate-900 rounded-3xl p-6 shadow-2xl relative">
+        <div className="glass-card rounded-3xl p-6 relative shimmer-border">
         
         {/* Tab Controls */}
-        <div className="flex bg-slate-900 p-1 border border-slate-800 rounded-2xl mb-6">
+        <div className="flex glass-tabs p-1 rounded-2xl mb-6">
           <button
             id="tab-toggle-buy"
             type="button"
@@ -192,9 +192,9 @@ export default function BuySellCard({
               setCryptoAmount("");
               setSuccessMsg(null);
             }}
-            className={`flex-1 py-2 rounded-xl text-center text-sm font-semibold transition-all cursor-pointer ${
+            className={`flex-1 py-2 rounded-xl text-center text-sm font-semibold font-display transition-all cursor-pointer ${
               activeSubTab === "buy" 
-                ? "bg-slate-950 border border-slate-800 text-white" 
+                ? "glass-tab-active" 
                 : "text-slate-400 hover:text-white"
             }`}
           >
@@ -210,9 +210,9 @@ export default function BuySellCard({
               setCryptoAmount("");
               setSuccessMsg(null);
             }}
-            className={`flex-1 py-2 rounded-xl text-center text-sm font-semibold transition-all cursor-pointer ${
+            className={`flex-1 py-2 rounded-xl text-center text-sm font-semibold font-display transition-all cursor-pointer ${
               activeSubTab === "sell" 
-                ? "bg-slate-950 border border-slate-800 text-white" 
+                ? "glass-tab-active" 
                 : "text-slate-400 hover:text-white"
             }`}
           >
@@ -332,7 +332,7 @@ export default function BuySellCard({
 
           {/* Clearing processing warning */}
           {loading && (
-            <div className="p-3 bg-slate-900 border border-slate-800 rounded-xl flex items-center gap-2.5">
+            <div className="p-3 glass-inner rounded-xl flex items-center gap-2.5">
               <Loader2 className="w-4 h-4 animate-spin text-cyan-400" />
               <span className="text-xs font-mono text-slate-400">Communicating bank transaction records...</span>
             </div>
@@ -355,7 +355,7 @@ export default function BuySellCard({
               id="buysell-wallet-trigger"
               type="button"
               onClick={onConnectWallet}
-              className="w-full py-3 px-4 bg-cyan-400 hover:bg-cyan-300 text-sm font-semibold rounded-xl text-slate-900 cursor-pointer transition-all shadow-lg"
+              className="w-full btn-primary !justify-center text-sm font-semibold rounded-xl text-slate-900 cursor-pointer transition-all shadow-lg"
             >
               Connect Web3 Receiving Wallet
             </button>
@@ -364,7 +364,7 @@ export default function BuySellCard({
               id="buysell-submit"
               type="submit"
               disabled={loading || !fiatAmount}
-              className="w-full py-3 px-4 bg-cyan-400 hover:bg-cyan-300 disabled:bg-slate-900 disabled:text-slate-650 disabled:border-slate-800 text-sm font-semibold rounded-xl text-slate-950 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full btn-primary !justify-center disabled:bg-slate-900 disabled:text-slate-650 disabled:border-slate-800 text-sm font-semibold rounded-xl text-slate-950 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               {loading 
                 ? "Clearing bank settlement accounts..." 

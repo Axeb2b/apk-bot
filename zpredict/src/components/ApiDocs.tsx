@@ -68,7 +68,7 @@ export default function ApiDocs({ onNavigateToSwap }: ApiDocsProps) {
     <div className="space-y-8" id="api-portal">
       
       {/* Intro Portal Banner */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 bg-slate-950 border border-slate-900 rounded-2xl">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 glass-card rounded-2xl">
         <div className="max-w-xl space-y-2">
           <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-indigo-950/40 border border-indigo-800/40 rounded-full">
             <Cpu className="w-3.5 h-3.5 text-indigo-400" />
@@ -81,7 +81,7 @@ export default function ApiDocs({ onNavigateToSwap }: ApiDocsProps) {
         </div>
 
         {/* API Key Generator widget */}
-        <div className="p-4 bg-slate-900 border border-slate-800 rounded-xl space-y-3 w-full md:w-80">
+        <div className="p-4 glass-inner rounded-xl space-y-3 w-full md:w-80">
           <span className="text-[10px] uppercase font-mono text-slate-500 tracking-wider block">Access Credentials</span>
           {apiKey ? (
             <div className="space-y-2">
@@ -121,7 +121,7 @@ export default function ApiDocs({ onNavigateToSwap }: ApiDocsProps) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         
         {/* Sidebar routes mapping */}
-        <div className="bg-slate-950 border border-slate-900 rounded-2xl p-4 h-fit">
+        <div className="glass-card rounded-2xl p-4 h-fit">
           <span className="block text-[10px] uppercase font-mono text-slate-500 tracking-wider mb-3 px-1">Endpoints Registry</span>
           <div className="space-y-1">
             {apiEndpointsList.map((ep) => {
@@ -157,7 +157,7 @@ export default function ApiDocs({ onNavigateToSwap }: ApiDocsProps) {
 
         {/* Documentation details & Interactive Sandbox */}
         <div className="lg:col-span-2 space-y-6">
-          <section className="bg-slate-950 border border-slate-900 rounded-2xl p-5 space-y-5">
+          <section className="glass-card rounded-2xl p-5 space-y-5">
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className={`text-xs font-mono font-extrabold px-2.5 py-0.5 rounded border ${
@@ -176,7 +176,7 @@ export default function ApiDocs({ onNavigateToSwap }: ApiDocsProps) {
             {selectedEndpoint.requestBody && (
               <div className="space-y-1.5">
                 <span className="block text-[10px] uppercase font-mono tracking-wider text-slate-500">JSON Request Sample payload</span>
-                <pre className="p-3 bg-slate-900 border border-slate-800 rounded-lg text-xs font-mono text-slate-350 overflow-x-auto">
+                <pre className="p-3 glass-inner rounded-lg text-xs font-mono text-slate-350 overflow-x-auto">
                   {selectedEndpoint.requestBody}
                 </pre>
               </div>
@@ -194,7 +194,7 @@ export default function ApiDocs({ onNavigateToSwap }: ApiDocsProps) {
                   {copiedCurl ? <>Copied curl snippet</> : <>Copy cURL code</>}
                 </button>
               </div>
-              <pre className="p-3.5 bg-slate-950 border border-slate-900 rounded-lg text-xs font-mono text-slate-400 overflow-x-auto whitespace-pre-wrap break-all leading-relaxed">
+              <pre className="p-3.5 glass-card rounded-lg text-xs font-mono text-slate-400 overflow-x-auto whitespace-pre-wrap break-all leading-relaxed">
                 {`curl -X ${selectedEndpoint.method} \\
   "https://api.zpredict.io${selectedEndpoint.path}" \\
   -H "Authorization: Bearer ${apiKey || "zp_live_your_api_key_here"}" \\
@@ -206,7 +206,7 @@ export default function ApiDocs({ onNavigateToSwap }: ApiDocsProps) {
           </section>
 
           {/* CODE INTERACTIVE SANDBOX */}
-          <section className="bg-slate-950 border border-slate-900 rounded-2xl p-5 space-y-4">
+          <section className="glass-card rounded-2xl p-5 space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-cyan-400">
                 <Terminal className="w-5 h-5" />
@@ -233,7 +233,7 @@ export default function ApiDocs({ onNavigateToSwap }: ApiDocsProps) {
                   <span>Simulated Status: 200 OK</span>
                   <span>Latency: 12ms</span>
                 </div>
-                <pre className="p-4 bg-slate-900 border border-slate-800 rounded-xl text-xs font-mono text-emerald-300 overflow-x-auto">
+                <pre className="p-4 glass-inner rounded-xl text-xs font-mono text-emerald-300 overflow-x-auto">
                   {simulatedResponse}
                 </pre>
               </div>

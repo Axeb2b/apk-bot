@@ -218,7 +218,7 @@ export default function SwapCard({
 
         {/* Dynamic settings panel */}
         {showSettings && (
-          <div className="p-4 bg-slate-900 border border-slate-800 rounded-2xl mb-4 space-y-3">
+          <div className="p-4 glass-inner rounded-2xl mb-4 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-slate-300">Slippage Tolerance</span>
               <span className="text-xs font-mono font-bold text-cyan-400">{slippage}%</span>

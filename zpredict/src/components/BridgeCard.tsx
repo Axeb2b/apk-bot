@@ -199,13 +199,13 @@ export default function BridgeCard({
   return (
     <div className="space-y-8" id="bridge-interface">
       <div className="max-w-md mx-auto">
-        <div className="bg-slate-950 border border-slate-900 rounded-3xl p-6 shadow-2xl relative">
+        <div className="glass-card rounded-3xl p-6 relative shimmer-border">
           
           {/* Header Title */}
-          <div className="flex items-center justify-between mb-5">
+          <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-xl font-sans font-bold text-white">Cross-Chain Bridge</h2>
-            <p className="text-xs text-slate-500">Route assets across isolated networks</p>
+            <h2 className="text-xl font-display font-bold text-white">Cross-Chain Bridge</h2>
+            <p className="text-xs text-slate-500 mt-0.5">Route assets across isolated networks</p>
           </div>
           <button
             id="bridge-refresh"
@@ -341,7 +341,7 @@ export default function BridgeCard({
 
           {/* Load sequences */}
           {loading && (
-            <div className="p-4 bg-slate-900 border border-slate-800 rounded-xl flex items-center gap-3">
+            <div className="p-4 glass-inner rounded-xl flex items-center gap-3">
               <Loader2 className="w-5 h-5 animate-spin text-cyan-400" />
               <p className="text-xs font-mono text-slate-300">{stepMessage}</p>
             </div>
@@ -365,7 +365,7 @@ export default function BridgeCard({
               id="bridge-wallet-trigger"
               type="button"
               onClick={onConnectWallet}
-              className="w-full py-3 px-4 bg-cyan-400 hover:bg-cyan-300 text-sm font-semibold rounded-xl text-slate-950 cursor-pointer transition-all shadow-lg shadow-cyan-500/10"
+              className="w-full btn-primary !justify-center text-sm font-semibold rounded-xl text-slate-950 cursor-pointer transition-all shadow-lg shadow-cyan-500/10"
             >
               Synchronize Web3 Wallet
             </button>
@@ -374,7 +374,7 @@ export default function BridgeCard({
               id="bridge-submit"
               type="submit"
               disabled={loading || !bridgeAmount}
-              className="w-full py-3 px-4 bg-cyan-400 hover:bg-cyan-300 disabled:bg-slate-900 disabled:text-slate-650 disabled:border-slate-800 text-sm font-semibold rounded-xl text-slate-950 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full btn-primary !justify-center disabled:bg-slate-900 disabled:text-slate-650 disabled:border-slate-800 text-sm font-semibold rounded-xl text-slate-950 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               {loading ? "Approving smart bridge locked states..." : `Bridge ${selectedToken.symbol} Assets`}
             </button>

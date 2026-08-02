@@ -18,7 +18,7 @@ import TransactionHistory from "./components/TransactionHistory";
 import EcosystemInfoHub from "./components/EcosystemInfoHub";
 import StakingDashboard from "./components/StakingDashboard";
 import WalletConnect from "./components/WalletConnect";
-import GeminiChatbot from "./components/GeminiChatbot";
+import MarketTicker from "./components/MarketTicker";
 
 // Lucide icon helper
 import { 
@@ -201,19 +201,26 @@ export default function App() {
       />
       </div>
 
+      <MarketTicker />
+
       {/* Main app container routing */}
       <main className="relative z-10 flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
         
         {authLoading ? (
           <div className="py-24 text-center space-y-4">
-            <Loader2 className="w-8 h-8 animate-spin text-cyan-400 mx-auto" />
-            <p className="text-sm font-mono text-slate-500">Decrypting user credentials...</p>
+            <div className="glass-card rounded-2xl p-8 max-w-xs mx-auto shimmer-border">
+              <Loader2 className="w-8 h-8 animate-spin text-cyan-400 mx-auto" />
+              <p className="text-sm font-display font-semibold text-white mt-4">Loading zPredict</p>
+              <p className="text-xs font-mono text-slate-500 mt-1">Initializing secure session...</p>
+            </div>
           </div>
         ) : (
-          <div className="space-y-10 animated fade-in">
+          <div className="space-y-10 page-section fade-in">
             
-            {/* Interactive Portal Directory explaining all website pages */}
-            <EcosystemInfoHub activeTab={activeTab} setActiveTab={setActiveTab} />
+            {/* Portal guide — dashboard only */}
+            {activeTab === "dashboard" && (
+              <EcosystemInfoHub activeTab={activeTab} setActiveTab={setActiveTab} />
+            )}
             
             {/* View content injection */}
             {activeTab === "dashboard" && (
@@ -308,8 +315,8 @@ export default function App() {
 
       {/* Simulated Connect wallet modal feedback hook */}
       {connectingWalletAnim && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xs">
-          <div className="p-6 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col items-center gap-4 text-center max-w-xs shadow-2xl animate-scale-up">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+          <div className="glass-card rounded-2xl p-6 flex flex-col items-center gap-4 text-center max-w-xs shimmer-border animate-scale-up">
             <Loader2 className="w-8 h-8 animate-spin text-cyan-400" />
             <div>
               <h4 className="font-sans font-bold text-white text-sm">Awaiting Wallet Signature</h4>
@@ -379,7 +386,7 @@ export default function App() {
               
               <div className="space-y-2">
                 {/* Trust Wallet Interactive status bar */}
-                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-900/30 border border-slate-900/40 hover:border-slate-850 transition-all select-none col-span-1">
+                <div className="flex items-center justify-between p-2.5 rounded-xl glass-inner hover:border-cyan-500/20 transition-all select-none col-span-1">
                   <div className="flex items-center gap-2">
                     {/* Trust Wallet Brand Icon */}
                     <svg className="w-5 h-5 text-sky-400" fill="currentColor" viewBox="0 0 24 24">
@@ -398,7 +405,7 @@ export default function App() {
                 </div>
 
                 {/* Coinbase Wallet Interactive status bar */}
-                <div className="flex items-center justify-between p-2 rounded-xl bg-slate-900/30 border border-slate-900/40 hover:border-slate-850 transition-all select-none col-span-1">
+                <div className="flex items-center justify-between p-2.5 rounded-xl glass-inner hover:border-cyan-500/20 transition-all select-none col-span-1">
                   <div className="flex items-center gap-2">
                     {/* Coinbase Wallet Icon representing brand */}
                     <div className="w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center font-bold text-[9px] text-white select-none shrink-0 font-mono">
@@ -467,7 +474,7 @@ export default function App() {
                     key={idx}
                     href={soc.url}
                     onClick={(e) => e.preventDefault()}
-                    className="p-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 hover:text-cyan-400 text-slate-400 rounded-xl transition-all shadow-xs"
+                    className="p-2.5 glass-inner hover:border-cyan-500/20 hover:text-cyan-400 text-slate-400 rounded-xl transition-all"
                     title={soc.title}
                   >
                     <IconComponent className="w-4 h-4" />

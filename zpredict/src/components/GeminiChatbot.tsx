@@ -247,7 +247,7 @@ export default function GeminiChatbot() {
       <div className="lg:col-span-1 flex flex-col gap-6" id="chat-sidebar-controls">
         
         {/* Assistant Roles Selection */}
-        <div className="bg-slate-950 border border-slate-900 rounded-2xl p-5" id="chat-roles-card">
+        <div className="glass-card rounded-2xl p-5" id="chat-roles-card">
           <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
             <UserIcon className="w-4 h-4 text-cyan-400" />
             Select Persona Role
@@ -286,7 +286,7 @@ export default function GeminiChatbot() {
         </div>
 
         {/* Model Intelligence Tier selector */}
-        <div className="bg-slate-950 border border-slate-900 rounded-2xl p-5" id="chat-model-card">
+        <div className="glass-card rounded-2xl p-5" id="chat-model-card">
           <h3 className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
             <Cpu className="w-4 h-4 text-indigo-400" />
             Model Intelligence Tier
@@ -326,7 +326,7 @@ export default function GeminiChatbot() {
       </div>
 
       {/* Main Interactive Chat Panel */}
-      <div className="lg:col-span-3 bg-slate-950 border border-slate-900 rounded-2xl flex flex-col justify-between overflow-hidden relative" id="chat-window-container">
+      <div className="lg:col-span-3 glass-card rounded-2xl flex flex-col justify-between overflow-hidden relative" id="chat-window-container">
         
         {/* Header bar of Chat */}
         <div className="px-6 py-4 bg-slate-950 border-b border-slate-900 flex items-center justify-between" id="chat-window-header">
@@ -383,7 +383,7 @@ export default function GeminiChatbot() {
                     <div className={`rounded-2xl px-4.5 py-3 shadow-inner ${
                       isBot 
                         ? "bg-slate-900/50 border border-slate-900 text-slate-200" 
-                        : "bg-slate-900 border border-slate-800 text-slate-100"
+                        : "glass-inner text-slate-100"
                     }`}>
                       {isBot ? renderMessageText(msg.text) : <p className="text-sm text-slate-200">{msg.text}</p>}
                     </div>
@@ -441,7 +441,7 @@ export default function GeminiChatbot() {
                 <button
                   key={i}
                   onClick={() => handleSendMessage(promptText)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs text-slate-300 hover:text-cyan-400 transition-all text-left cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg glass-inner hover:border-slate-700 text-xs text-slate-300 hover:text-cyan-400 transition-all text-left cursor-pointer"
                 >
                   {promptText}
                   <ChevronRight className="w-3.5 h-3.5 opacity-60" />

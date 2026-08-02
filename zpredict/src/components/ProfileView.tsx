@@ -26,7 +26,7 @@ export default function ProfileView({
   if (!user) {
     return (
       <div className="max-w-md mx-auto text-center py-16 space-y-4" id="profile-unauth-fallback">
-        <div className="p-3 bg-slate-900 border border-slate-800 rounded-full w-fit mx-auto text-slate-500">
+        <div className="p-3 glass-inner rounded-full w-fit mx-auto text-slate-500">
           <User className="w-8 h-8" />
         </div>
         <h3 className="text-xl font-bold font-sans text-white">Authentication Required</h3>
@@ -99,7 +99,7 @@ export default function ProfileView({
     <div className="max-w-xl mx-auto space-y-6" id="profile-container">
       
       {/* Profile summary header */}
-      <div className="p-6 bg-slate-950 border border-slate-900 rounded-3xl flex flex-col sm:flex-row items-center gap-6">
+      <div className="p-6 glass-card rounded-3xl flex flex-col sm:flex-row items-center gap-6">
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-500 to-indigo-500 text-slate-950 flex items-center justify-center font-bold text-2xl uppercase">
           {displayName ? displayName.charAt(0) : user.email?.charAt(0) || "U"}
         </div>
@@ -114,7 +114,7 @@ export default function ProfileView({
       </div>
 
       {/* Profile Details edit form */}
-      <div className="bg-slate-950 border border-slate-900 rounded-3xl p-6">
+      <div className="glass-card rounded-3xl p-6">
         <h4 className="text-base font-bold text-white mb-4">Account Settings</h4>
         
         <form onSubmit={handleUpdateProfile} className="space-y-4">
@@ -123,7 +123,7 @@ export default function ProfileView({
             <label className="block text-xs font-mono font-medium tracking-wider text-slate-500 uppercase">
               Registered Email (Immutable)
             </label>
-            <div className="flex items-center gap-2 px-3 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-slate-500 text-xs sm:text-sm font-mono cursor-not-allowed">
+            <div className="flex items-center gap-2 px-3 py-2.5 glass-inner rounded-xl text-slate-500 text-xs sm:text-sm font-mono cursor-not-allowed">
               <Mail className="w-4 h-4 text-slate-600" />
               {user.email}
             </div>
@@ -141,7 +141,7 @@ export default function ProfileView({
                 value={displayName}
                 onChange={(e) => setDisplayName(e.target.value)}
                 maxLength={100}
-                className="w-full px-4 py-2.5 pl-10 text-white placeholder-slate-500 bg-slate-900 border border-slate-800 rounded-lg focus:outline-hidden focus:border-cyan-500 text-xs sm:text-sm font-sans"
+                className="w-full px-4 py-2.5 pl-10 text-white placeholder-slate-500 glass-inner rounded-lg focus:outline-hidden focus:border-cyan-500 text-xs sm:text-sm font-sans"
                 required
                 disabled={loading}
               />
@@ -150,7 +150,7 @@ export default function ProfileView({
           </div>
 
           {/* Sync connected wallet metadata */}
-          <div className="p-4 bg-slate-900 border border-slate-800 rounded-2xl space-y-3.5">
+          <div className="p-4 glass-inner rounded-2xl space-y-3.5">
             <span className="block text-xs font-mono text-slate-500 uppercase font-semibold">Web3 Wallet Credentials</span>
             
             <div className="flex items-center justify-between gap-4">

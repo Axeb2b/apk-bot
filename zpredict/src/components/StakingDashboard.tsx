@@ -429,7 +429,7 @@ export default function StakingDashboard() {
   return (
     <div className="space-y-6">
       <div className="grid md:grid-cols-2 gap-6">
-        <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+        <div className="glass-card rounded-2xl p-6">
           <h3 className="text-xl font-bold text-white mb-4">ZPRED Staking</h3>
           {!address ? (
             <p className="text-slate-400">Please connect wallet to stake.</p>
@@ -468,7 +468,7 @@ export default function StakingDashboard() {
         </div>
 
         {/* APY Radial Gauge */}
-        <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 flex items-center justify-center">
+        <div className="glass-card rounded-2xl p-6 flex items-center justify-center">
             <div className="relative w-40 h-40">
                 <svg className="w-full h-full -rotate-90">
                     <circle cx="80" cy="80" r="70" className="stroke-slate-800" strokeWidth="12" fill="none" />
@@ -1043,7 +1043,7 @@ export default function StakingDashboard() {
         </motion.div>
 
         {/* Notif Toggle */}
-        <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+        <div className="glass-card rounded-2xl p-6 flex flex-col justify-between">
            <h3 className="text-lg font-bold text-white mb-4">Alerts</h3>
            <button onClick={toggleNotifications} className={`flex items-center gap-3 p-4 rounded-lg border ${notificationsEnabled ? 'bg-cyan-950 border-cyan-800 text-cyan-200' : 'bg-slate-950 border-slate-800 text-slate-400'}`}>
                <Bell size={20} />
@@ -1054,7 +1054,7 @@ export default function StakingDashboard() {
       
       {address && (
         <div className="space-y-6">
-          <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+          <div className="glass-card rounded-2xl p-6">
             <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-bold text-white">Staking History</h3>
                 <button onClick={exportCSV} className="flex items-center gap-2 text-xs text-cyan-400 hover:text-cyan-300">
@@ -1083,7 +1083,7 @@ export default function StakingDashboard() {
             </div>
           </div>
 
-          <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+          <div className="glass-card rounded-2xl p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-white">Rewards History</h3>
               <div className="flex bg-slate-950 rounded-lg p-1 text-xs">

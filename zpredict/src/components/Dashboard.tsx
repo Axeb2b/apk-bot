@@ -1077,7 +1077,7 @@ export default function Dashboard({
         </div>
 
         {/* Roadmap section */}
-        <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 mb-6">
+        <div className="glass-card rounded-2xl p-6 mb-6">
           <h3 className="text-lg font-bold text-white mb-4">Project Roadmap</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
             {['Q3 2025: Multi-chain swap live + Firestore isolation', 'Q4 2025: zPredict staking mainnet, loyalty points', 'Q1 2026: Cross-chain prediction markets, MEV protection', 'Q2 2026: Developer API v2 + mobile SDK'].map((item, i) => (
@@ -1087,7 +1087,7 @@ export default function Dashboard({
         </div>
 
         {/* Audit Report */}
-        <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 mb-6 flex items-center justify-between">
+        <div className="glass-card rounded-2xl p-6 mb-6 flex items-center justify-between">
             <p className="text-sm text-slate-300">Audited by <strong className="text-white">SecureAuditFirm</strong> – No critical issues found. <a href="#" className="text-cyan-400">View Report (PDF)</a></p>
             <button className="px-4 py-2 bg-indigo-900 text-white rounded-lg text-xs font-bold">Bug Bounty Program</button>
         </div>
@@ -1095,7 +1095,7 @@ export default function Dashboard({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           
           {/* Card 1: Swap */}
-          <div className="group bg-slate-950 border border-slate-900 rounded-2xl p-5 hover:border-cyan-500/40 transition-all flex flex-col justify-between space-y-4">
+          <div className="group glass-card rounded-2xl p-5 hover:border-cyan-500/40 transition-all flex flex-col justify-between space-y-4">
             <div className="space-y-2">
               <div className="w-10 h-10 rounded-lg bg-cyan-950/30 flex items-center justify-center text-cyan-400 border border-cyan-900/40">
                 <Coins className="w-5 h-5" />
@@ -1114,7 +1114,7 @@ export default function Dashboard({
           </div>
 
           {/* Card 2: Bridge */}
-          <div className="group bg-slate-950 border border-slate-900 rounded-2xl p-5 hover:border-indigo-500/40 transition-all flex flex-col justify-between space-y-4">
+          <div className="group glass-card rounded-2xl p-5 hover:border-indigo-500/40 transition-all flex flex-col justify-between space-y-4">
             <div className="space-y-2">
               <div className="w-10 h-10 rounded-lg bg-indigo-950/30 flex items-center justify-center text-indigo-400 border border-indigo-900/40">
                 <Globe className="w-5 h-5" />
@@ -1133,7 +1133,7 @@ export default function Dashboard({
           </div>
 
           {/* Card 3: Buy/Sell */}
-          <div className="group bg-slate-950 border border-slate-900 rounded-2xl p-5 hover:border-emerald-500/40 transition-all flex flex-col justify-between space-y-4">
+          <div className="group glass-card rounded-2xl p-5 hover:border-emerald-500/40 transition-all flex flex-col justify-between space-y-4">
             <div className="space-y-2">
               <div className="w-10 h-10 rounded-lg bg-emerald-950/30 flex items-center justify-center text-emerald-400 border border-emerald-900/40">
                 <DollarSign className="w-5 h-5" />
@@ -1152,7 +1152,7 @@ export default function Dashboard({
           </div>
 
           {/* Card 4: Dev API */}
-          <div className="group bg-slate-950 border border-slate-900 rounded-2xl p-5 hover:border-violet-500/40 transition-all flex flex-col justify-between space-y-4">
+          <div className="group glass-card rounded-2xl p-5 hover:border-violet-500/40 transition-all flex flex-col justify-between space-y-4">
             <div className="space-y-2">
               <div className="w-10 h-10 rounded-lg bg-violet-950/30 flex items-center justify-center text-violet-400 border border-violet-900/40">
                 <Terminal className="w-5 h-5" />
@@ -1171,7 +1171,7 @@ export default function Dashboard({
           </div>
 
           {/* Card 5: Insights Blog */}
-          <div className="group bg-slate-950 border border-slate-900 rounded-2xl p-5 hover:border-amber-500/40 transition-all flex flex-col justify-between space-y-4">
+          <div className="group glass-card rounded-2xl p-5 hover:border-amber-500/40 transition-all flex flex-col justify-between space-y-4">
             <div className="space-y-2">
               <div className="w-10 h-10 rounded-lg bg-amber-950/30 flex items-center justify-center text-amber-400 border border-amber-900/40">
                 <Activity className="w-5 h-5" />
@@ -1190,7 +1190,7 @@ export default function Dashboard({
           </div>
 
           {/* Card 6: Firebase Transaction Logs */}
-          <div className="group bg-slate-950 border border-slate-900 rounded-2xl p-5 hover:border-rose-500/40 transition-all flex flex-col justify-between space-y-4">
+          <div className="group glass-card rounded-2xl p-5 hover:border-rose-500/40 transition-all flex flex-col justify-between space-y-4">
             <div className="space-y-2">
               <div className="w-10 h-10 rounded-lg bg-rose-950/30 flex items-center justify-center text-rose-400 border border-rose-900/40">
                 <ShieldCheck className="w-5 h-5" />
@@ -1213,7 +1213,7 @@ export default function Dashboard({
 
       {/* Core Platform Index Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        <div className="p-6 bg-slate-950 border border-slate-900 rounded-2xl flex items-center gap-4">
+        <div className="p-6 glass-card rounded-2xl flex items-center gap-4">
           <div className="p-3 bg-cyan-950/40 border border-cyan-900/50 rounded-lg text-cyan-400 animate-pulse">
             <DollarSign className="w-5 h-5" />
           </div>
@@ -1223,7 +1223,7 @@ export default function Dashboard({
           </div>
         </div>
 
-        <div className="p-6 bg-slate-950 border border-slate-900 rounded-2xl flex items-center gap-4">
+        <div className="p-6 glass-card rounded-2xl flex items-center gap-4">
           <div className="p-3 bg-indigo-950/40 border border-indigo-900/50 rounded-lg text-indigo-400">
             <Globe className="w-5 h-5" />
           </div>
@@ -1233,7 +1233,7 @@ export default function Dashboard({
           </div>
         </div>
 
-        <div className="p-6 bg-slate-950 border border-slate-900 rounded-2xl flex items-center gap-4">
+        <div className="p-6 glass-card rounded-2xl flex items-center gap-4">
           <div className="p-3 bg-emerald-950/40 border border-emerald-900/50 rounded-lg text-emerald-400">
             <Briefcase className="w-5 h-5" />
           </div>
@@ -1248,7 +1248,7 @@ export default function Dashboard({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" id="portfolio-alerts-row">
         
         {/* Wallet Portfolio Section */}
-        <section className="lg:col-span-2 bg-slate-950 border border-slate-900 rounded-2xl p-6 flex flex-col justify-between" id="wallet-portfolio-card">
+        <section className="lg:col-span-2 glass-card rounded-2xl p-6 flex flex-col justify-between" id="wallet-portfolio-card">
           <div className="space-y-4 w-full">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-900 pb-3">
               <div className="flex items-center gap-2 text-cyan-400">
@@ -1377,7 +1377,7 @@ export default function Dashboard({
         </section>
 
         {/* Price Alerts Monitor Section */}
-        <section className="lg:col-span-1 bg-slate-950 border border-slate-900 rounded-2xl p-6 flex flex-col justify-between" id="price-alerts-monitor-card">
+        <section className="lg:col-span-1 glass-card rounded-2xl p-6 flex flex-col justify-between" id="price-alerts-monitor-card">
           <div className="space-y-4 w-full">
             <div className="flex items-center justify-between border-b border-slate-900 pb-3">
               <div className="flex items-center gap-2 text-cyan-400">
@@ -1390,7 +1390,7 @@ export default function Dashboard({
             </div>
 
             {/* Simulated Push Subscription Control Toggle */}
-            <div className="flex items-center justify-between p-2.5 bg-slate-900 border border-slate-800 rounded-xl">
+            <div className="flex items-center justify-between p-2.5 glass-inner rounded-xl">
               <div className="flex items-center gap-2 min-w-0">
                 <div className={`p-1.5 rounded-lg shrink-0 ${pushSubscribed ? "bg-cyan-950/40 text-cyan-400" : "bg-slate-950 text-slate-600"}`}>
                   <Bell className="w-3.5 h-3.5" />
@@ -1413,7 +1413,7 @@ export default function Dashboard({
             </div>
 
             {/* Simulated Live Price Volatility Sandbox Trigger */}
-            <div className="p-2.5 bg-slate-900 border border-slate-800 rounded-xl space-y-2">
+            <div className="p-2.5 glass-inner rounded-xl space-y-2">
               <div className="flex items-center justify-between">
                 <span className="text-[9px] font-mono font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
                   <Activity className="w-3 h-3 text-cyan-450 animate-pulse" /> Sandbox Controller
@@ -1489,7 +1489,7 @@ export default function Dashboard({
                     id="alert-status-filter"
                     value={filterAlertStatus}
                     onChange={(e) => setFilterAlertStatus(e.target.value as any)}
-                    className="bg-slate-900 border border-slate-800 text-slate-300 text-[10px] font-mono px-2 py-1 rounded-lg focus:outline-hidden focus:border-cyan-500 cursor-pointer"
+                    className="glass-inner text-slate-300 text-[10px] font-mono px-2 py-1 rounded-lg focus:outline-hidden focus:border-cyan-500 cursor-pointer"
                     title="Filter Alerts"
                   >
                     <option value="all">All Alerts</option>
@@ -1502,7 +1502,7 @@ export default function Dashboard({
                     id="alert-sort-selector"
                     value={sortAlertsBy}
                     onChange={(e) => setSortAlertsBy(e.target.value as any)}
-                    className="bg-slate-900 border border-slate-800 text-slate-300 text-[10px] font-mono px-2 py-1 rounded-lg focus:outline-hidden focus:border-cyan-500 cursor-pointer"
+                    className="glass-inner text-slate-300 text-[10px] font-mono px-2 py-1 rounded-lg focus:outline-hidden focus:border-cyan-500 cursor-pointer"
                     title="Sort Alerts"
                   >
                     <option value="createdAt">Date Created</option>
@@ -1820,7 +1820,7 @@ export default function Dashboard({
       </div>
 
       {/* NEW INTERACTIVE FEATURE: ON-CHAIN WALLET ASSET ALLOCATION BREAKDOWN */}
-      <section className="bg-slate-950 border border-slate-900 rounded-3xl p-6 md:p-8 space-y-6" id="wallet-allocation-breakdown-section">
+      <section className="glass-card rounded-3xl p-6 md:p-8 space-y-6" id="wallet-allocation-breakdown-section">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-900 pb-5">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
@@ -1848,10 +1848,10 @@ export default function Dashboard({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Left Column: Solid Pie Chart Visualization */}
-          <div className="lg:col-span-5 bg-slate-950 border border-slate-900 p-5 rounded-2xl flex flex-col justify-between min-h-[360px] relative overflow-hidden">
+          <div className="lg:col-span-5 glass-card p-5 rounded-2xl flex flex-col justify-between min-h-[360px] relative overflow-hidden">
             {!connectedWallet ? (
               <div className="flex flex-col items-center justify-center text-center space-y-4 my-auto py-10">
-                <div className="w-12 h-12 rounded-xl bg-slate-900/40 border border-slate-800 flex items-center justify-center text-slate-500">
+                <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-slate-500">
                   <Wallet className="w-6 h-6" />
                 </div>
                 <div className="space-y-1.5 max-w-xs">
@@ -1928,7 +1928,7 @@ export default function Dashboard({
           </div>
 
           {/* Right Column: Weighting Presets and Slider controls */}
-          <div className="lg:col-span-7 bg-slate-900 border border-slate-800 p-5 sm:p-6 rounded-2xl flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-7 glass-inner p-5 sm:p-6 rounded-2xl flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="text-[10px] font-mono tracking-wider text-slate-400 font-bold uppercase block">Target Allocation Blueprints</span>
@@ -2100,7 +2100,7 @@ export default function Dashboard({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         {/* Dynamic Chart Panel */}
-        <section className="lg:col-span-2 bg-slate-950 border border-slate-900 rounded-2xl p-6 flex flex-col justify-between">
+        <section className="lg:col-span-2 glass-card rounded-2xl p-6 flex flex-col justify-between">
           <div>
             {/* Chart Control Header */}
             <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
@@ -2204,7 +2204,7 @@ export default function Dashboard({
         </section>
 
         {/* Prediction AI Model Widget */}
-        <section className="bg-slate-950 border border-slate-900 rounded-2xl p-6 flex flex-col justify-between">
+        <section className="glass-card rounded-2xl p-6 flex flex-col justify-between">
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-cyan-400">
               <Sparkles className="w-5 h-5" />
@@ -2227,7 +2227,7 @@ export default function Dashboard({
                      setAiAnalysisResult(null);
                   }
                 }}
-                className="w-full px-3 py-2 bg-slate-900 border border-slate-800 text-slate-200 rounded-xl text-sm focus:outline-hidden focus:border-cyan-500"
+                className="w-full px-3 py-2 glass-inner text-slate-200 rounded-xl text-sm focus:outline-hidden focus:border-cyan-500"
               >
                 {tokens.map((token) => (
                   <option key={token.symbol} value={token.symbol}>{token.name} ({token.symbol})</option>
@@ -2267,7 +2267,7 @@ export default function Dashboard({
       </div>
 
       {/* NEW INTERACTIVE FEATURE 1: MULTI-CHAIN GAS COST ESTIMATOR */}
-      <section className="bg-slate-950 border border-slate-900 rounded-2xl p-6 space-y-6" id="gas-estimator-card">
+      <section className="glass-card rounded-2xl p-6 space-y-6" id="gas-estimator-card">
         <div className="flex items-center gap-2 text-cyan-400 border-b border-slate-900 pb-4">
           <Calculator className="w-5 h-5" />
           <div>
@@ -2284,7 +2284,7 @@ export default function Dashboard({
               <select
                 value={calcNetwork}
                 onChange={(e) => setCalcNetwork(e.target.value)}
-                className="w-full px-3 py-2 bg-slate-900 border border-slate-800 text-slate-200 rounded-xl text-xs sm:text-sm focus:outline-hidden"
+                className="w-full px-3 py-2 glass-inner text-slate-200 rounded-xl text-xs sm:text-sm focus:outline-hidden"
               >
                 {networksList.map((net) => (
                   <option key={net.id} value={net.id}>{net.name} (Base Gas: {net.gasPriceGwei} Gwei)</option>
@@ -2345,7 +2345,7 @@ export default function Dashboard({
           </div>
 
           {/* Results Widget */}
-          <div className="lg:col-span-2 bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col justify-between space-y-4">
+          <div className="lg:col-span-2 glass-inner p-5 rounded-2xl flex flex-col justify-between space-y-4">
             <div className="space-y-4">
               <span className="text-[10px] font-mono tracking-wider text-slate-500 uppercase">Live cost projection</span>
               
@@ -2454,7 +2454,7 @@ export default function Dashboard({
       </section>
 
       {/* NEW INTERACTIVE FEATURE 2: STAKING YIELD (ROI) GENERATOR */}
-      <section className="bg-slate-950 border border-slate-900 rounded-2xl p-6 space-y-6" id="staking-simulator-card">
+      <section className="glass-card rounded-2xl p-6 space-y-6" id="staking-simulator-card">
         <div className="flex items-center gap-2 text-cyan-400 border-b border-slate-900 pb-4">
           <Percent className="w-5 h-5" />
           <div>
@@ -2501,7 +2501,7 @@ export default function Dashboard({
                   placeholder="1000"
                   value={stakeAmount}
                   onChange={(e) => setStakeAmount(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-slate-900 border border-slate-800 text-white placeholder-slate-500 rounded-xl font-mono text-sm focus:outline-hidden focus:border-cyan-500"
+                  className="w-full px-3 py-2.5 glass-inner text-white placeholder-slate-500 rounded-xl font-mono text-sm focus:outline-hidden focus:border-cyan-500"
                 />
                 <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-500 uppercase font-mono">
                   {stakeAsset}
@@ -2534,7 +2534,7 @@ export default function Dashboard({
           </div>
 
           {/* ROI Visualization - Right */}
-          <div className="lg:col-span-7 bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col justify-between space-y-4">
+          <div className="lg:col-span-7 glass-inner p-5 rounded-2xl flex flex-col justify-between space-y-4">
             <div className="space-y-4">
               <span className="text-[10px] font-mono tracking-wider text-slate-500 uppercase">Dynamic Rewards Output</span>
               
@@ -2599,7 +2599,7 @@ export default function Dashboard({
       </section>
 
       {/* NEW INTERACTIVE FEATURE 3: SECURE FIRESTORE FIREWALL RULES INSIDER */}
-      <section className="bg-slate-950 border border-slate-900 rounded-3xl p-6" id="zero-trust-inspect">
+      <section className="glass-card rounded-3xl p-6" id="zero-trust-inspect">
         <div className="flex items-center gap-2 text-indigo-400 border-b border-slate-900 pb-4">
           <ShieldAlert className="w-5 h-5 text-indigo-400" />
           <div>
@@ -2647,7 +2647,7 @@ export default function Dashboard({
           </div>
 
           {/* Secure Rules Code Inspector Panel */}
-          <div className="lg:col-span-7 bg-slate-900 border border-slate-800 p-5 rounded-2xl flex flex-col justify-between space-y-4">
+          <div className="lg:col-span-7 glass-inner p-5 rounded-2xl flex flex-col justify-between space-y-4">
             <div className="space-y-3">
               <div className="flex items-center justify-between text-[10px] font-mono text-indigo-400 uppercase">
                 <span>Active Database Securing Schema</span>
@@ -2680,7 +2680,7 @@ service cloud.firestore {
       </section>
 
       {/* Asset Trading Ledger Listings */}
-      <section className="bg-slate-950 border border-slate-900 rounded-3xl p-6">
+      <section className="glass-card rounded-3xl p-6">
         <h3 className="text-xl font-bold text-white mb-4 font-sans border-b border-slate-900 pb-3">Active Cryptocoin Markets</h3>
         <div className="overflow-x-auto">
           <table className="w-full text-left" id="assets-table">
@@ -2708,7 +2708,7 @@ service cloud.firestore {
                       }}
                       className="flex items-center gap-3 cursor-pointer"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400 group-hover:border-cyan-500 transition-colors shrink-0">
+                      <div className="w-8 h-8 rounded-lg glass-inner flex items-center justify-center text-cyan-400 group-hover:border-cyan-500 transition-colors shrink-0">
                         <span className="font-bold text-xs font-mono">{token.symbol.slice(0, 2)}</span>
                       </div>
                       <div>
@@ -2750,7 +2750,7 @@ service cloud.firestore {
       {/* Set Price Alert Modal */}
       {isAlertModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-xs p-4">
-          <div className="w-full max-w-sm bg-slate-950 border border-slate-900 rounded-2xl p-6 shadow-2xl relative animate-scale-up">
+          <div className="w-full max-w-sm glass-card rounded-2xl p-6 shadow-2xl relative animate-scale-up">
             
             {/* Close Button */}
             <button
@@ -2786,7 +2786,7 @@ service cloud.firestore {
                       setAlertPrice(sel.priceUsd.toString());
                     }
                   }}
-                  className="w-full px-3 py-2 bg-slate-900 border border-slate-800 text-white rounded-xl text-xs sm:text-sm focus:outline-hidden focus:border-cyan-500"
+                  className="w-full px-3 py-2 glass-inner text-white rounded-xl text-xs sm:text-sm focus:outline-hidden focus:border-cyan-500"
                 >
                   {tokens.map((token) => (
                     <option key={token.symbol} value={token.symbol}>
@@ -2855,7 +2855,7 @@ service cloud.firestore {
             <div className="mt-6 flex items-center gap-2">
               <button
                 onClick={() => setIsAlertModalOpen(false)}
-                className="flex-1 py-2 bg-slate-900 border border-slate-800 hover:bg-slate-850 text-xs font-bold text-slate-300 rounded-xl transition-all cursor-pointer"
+                className="flex-1 py-2 glass-inner hover:bg-slate-850 text-xs font-bold text-slate-300 rounded-xl transition-all cursor-pointer"
               >
                 Cancel
               </button>

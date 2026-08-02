@@ -13,7 +13,7 @@ export default function LegalViews({ onNavigateToSwap }: LegalViewsProps) {
     <div className="space-y-6" id="legal-legal-view font-sans">
       
       {/* Tab Select Header */}
-      <div className="flex bg-slate-900 border border-slate-800 p-1 rounded-2xl max-w-md mx-auto">
+      <div className="flex glass-inner p-1 rounded-2xl max-w-md mx-auto">
         <button
           id="legal-toggle-terms"
           onClick={() => setActiveSegment("terms")}
@@ -42,7 +42,7 @@ export default function LegalViews({ onNavigateToSwap }: LegalViewsProps) {
       </div>
 
       {/* Main legal article frame */}
-      <div className="bg-slate-950 border border-slate-900 rounded-3xl p-6 sm:p-10 max-w-4xl mx-auto">
+      <div className="glass-card rounded-3xl p-6 sm:p-10 max-w-4xl mx-auto">
         {activeSegment === "terms" ? (
           // Terms View
           <div className="space-y-6" id="terms-content">
@@ -59,7 +59,7 @@ export default function LegalViews({ onNavigateToSwap }: LegalViewsProps) {
               {/* Point 1 */}
               <div className="space-y-2">
                 <h4 className="font-bold text-sm text-white flex items-center gap-2">
-                  <span className="flex items-center justify-center p-1 bg-slate-900 border border-slate-800 rounded-md text-cyan-400 font-mono text-[10px] w-5 h-5">1</span>
+                  <span className="flex items-center justify-center p-1 glass-inner rounded-md text-cyan-400 font-mono text-[10px] w-5 h-5">1</span>
                   Simulation & Experimental Use Notice
                 </h4>
                 <p>
@@ -70,7 +70,7 @@ export default function LegalViews({ onNavigateToSwap }: LegalViewsProps) {
               {/* Point 2 */}
               <div className="space-y-2">
                 <h4 className="font-bold text-sm text-white flex items-center gap-2">
-                  <span className="flex items-center justify-center p-1 bg-slate-900 border border-slate-800 rounded-md text-cyan-400 font-mono text-[10px] w-5 h-5">2</span>
+                  <span className="flex items-center justify-center p-1 glass-inner rounded-md text-cyan-400 font-mono text-[10px] w-5 h-5">2</span>
                   Self-Custody & External Key Integrations
                 </h4>
                 <p>
@@ -81,7 +81,7 @@ export default function LegalViews({ onNavigateToSwap }: LegalViewsProps) {
               {/* Point 3 */}
               <div className="space-y-2">
                 <h4 className="font-bold text-sm text-white flex items-center gap-2">
-                  <span className="flex items-center justify-center p-1 bg-slate-900 border border-slate-800 rounded-md text-cyan-400 font-mono text-[10px] w-5 h-5">3</span>
+                  <span className="flex items-center justify-center p-1 glass-inner rounded-md text-cyan-400 font-mono text-[10px] w-5 h-5">3</span>
                   Accuracy of Forecasts and AI Predictions
                 </h4>
                 <p>
@@ -92,7 +92,7 @@ export default function LegalViews({ onNavigateToSwap }: LegalViewsProps) {
               {/* Point 4 */}
               <div className="space-y-2">
                 <h4 className="font-bold text-sm text-white flex items-center gap-2">
-                  <span className="flex items-center justify-center p-1 bg-slate-900 border border-slate-800 rounded-md text-cyan-400 font-mono text-[10px] w-5 h-5">4</span>
+                  <span className="flex items-center justify-center p-1 glass-inner rounded-md text-cyan-400 font-mono text-[10px] w-5 h-5">4</span>
                   Modifications & Service Discontinuances
                 </h4>
                 <p>

@@ -171,7 +171,7 @@ export default function TransactionHistory({ user, triggerRefresh }: Transaction
   }
 
   return (
-    <section className="bg-slate-950 border border-slate-900 rounded-3xl p-6 space-y-6" id="transaction-history-ledger">
+    <section className="glass-card rounded-3xl p-6 space-y-6" id="transaction-history-ledger">
       
       {/* Title control header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-900 pb-5">
@@ -193,7 +193,7 @@ export default function TransactionHistory({ user, triggerRefresh }: Transaction
               placeholder="Search assets, hash..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full sm:w-48 px-3 py-1.5 pl-8 bg-slate-900 border border-slate-800 rounded-lg text-xs text-white focus:outline-hidden focus:border-cyan-500 font-sans"
+              className="w-full sm:w-48 px-3 py-1.5 pl-8 glass-inner rounded-lg text-xs text-white focus:outline-hidden focus:border-cyan-500 font-sans"
             />
             <Search className="absolute top-1/2 left-2.5 -translate-y-1/2 w-4 h-4 text-slate-500" />
           </div>
@@ -203,7 +203,7 @@ export default function TransactionHistory({ user, triggerRefresh }: Transaction
             id="history-type-filter"
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
-            className="px-2.5 py-1.5 bg-slate-900 border border-slate-800 rounded-lg text-xs text-slate-300 focus:outline-hidden cursor-pointer"
+            className="px-2.5 py-1.5 glass-inner rounded-lg text-xs text-slate-300 focus:outline-hidden cursor-pointer"
           >
             <option value="all">All Operations</option>
             <option value="swap">Swaps</option>
@@ -217,7 +217,7 @@ export default function TransactionHistory({ user, triggerRefresh }: Transaction
             id="download-csv-btn"
             onClick={handleDownloadCSV}
             disabled={filteredTransactions.length === 0}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 border border-slate-800 hover:border-cyan-500 rounded-lg text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-all cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed"
+            className="flex items-center gap-1.5 px-3 py-1.5 glass-inner hover:border-cyan-500 rounded-lg text-xs font-semibold text-slate-300 hover:text-cyan-400 transition-all cursor-pointer disabled:opacity-45 disabled:cursor-not-allowed"
             title="Download currently filtered transactions in CSV format"
           >
             <Download className="w-4 h-4" />
