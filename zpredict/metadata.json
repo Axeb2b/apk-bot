@@ -1,0 +1,6 @@
+{
+  "name": "zPredict",
+  "description": "A high-performance crypto trading, swap, bridge, buy & sell platform featuring interactive dashboards, blog network, API documentation, transaction history tracking, and Firebase authentication.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

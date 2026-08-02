@@ -1,0 +1,161 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "A user profile, storing registration info and wallet synchronization.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The Firebase UID of the User."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address of the user."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Display name or username."
+        },
+        "walletAddress": {
+          "type": "string",
+          "description": "Connected EVM/Web3 public wallet address."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server updated timestamp."
+        }
+      },
+      "required": ["userId", "email", "createdAt", "updatedAt"]
+    },
+    "Transaction": {
+      "title": "Transaction",
+      "description": "A crypto transaction representing swap, bridge, buy, or sell transactions.",
+      "type": "object",
+      "properties": {
+        "transactionId": {
+          "type": "string",
+          "description": "The unique transaction identifier."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Firebase UID of user who created transaction."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["swap", "bridge", "buy", "sell"],
+          "description": "Transaction action type."
+        },
+        "fromToken": {
+          "type": "string",
+          "description": "Symbol of the token being exchanged or bridging from."
+        },
+        "fromAmount": {
+          "type": "number",
+          "description": "Amount being exchanged or bridged."
+        },
+        "toToken": {
+          "type": "string",
+          "description": "Symbol of the token being acquired or bridging to."
+        },
+        "toAmount": {
+          "type": "number",
+          "description": "Calculated or received amount."
+        },
+        "network": {
+          "type": "string",
+          "description": "Blockchain network name (e.g. Ethereum, Polygon, Solana)."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "completed", "failed"],
+          "description": "Execution status."
+        },
+        "txHash": {
+          "type": "string",
+          "description": "Simulated blockchain transaction hash."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Update timestamp."
+        }
+      },
+      "required": ["transactionId", "userId", "type", "fromToken", "fromAmount", "toToken", "toAmount", "network", "status", "txHash", "createdAt", "updatedAt"]
+    },
+    "Alert": {
+      "title": "Alert",
+      "description": "A target price alert for specified token asset configurations.",
+      "type": "object",
+      "properties": {
+        "alertId": {
+          "type": "string",
+          "description": "The unique alert identifier."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Firebase UID of user who created the alert."
+        },
+        "tokenSymbol": {
+          "type": "string",
+          "description": "Symbol of the token (e.g. BTC, ETH)."
+        },
+        "tokenName": {
+          "type": "string",
+          "description": "Name of the token (e.g. Bitcoin, Ethereum)."
+        },
+        "targetPrice": {
+          "type": "number",
+          "description": "Target trigger price in USD."
+        },
+        "condition": {
+          "type": "string",
+          "enum": ["above", "below"],
+          "description": "Trigger condition relative to target price."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "triggered"],
+          "description": "Current alert status."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Update timestamp."
+        }
+      },
+      "required": ["alertId", "userId", "tokenSymbol", "tokenName", "targetPrice", "condition", "status", "createdAt", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Stores secure user metadata and synchronized Web3 wallet addresses."
+    },
+    "transactions/{transactionId}": {
+      "schema": "Transaction",
+      "description": "Stores user transaction logs of all swap/bridge/buy/sell trades."
+    },
+    "alerts/{alertId}": {
+      "schema": "Alert",
+      "description": "Stores user configured price threshold alerts."
+    }
+  }
+}
